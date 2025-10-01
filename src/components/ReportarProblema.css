@@ -1,0 +1,55 @@
+.reportar{
+  --line: var(--fx-line, rgba(28,45,64,0.12));
+  --text: var(--fx-text, #1F2A37);
+  --muted: var(--fx-muted, #5B6B7C);
+  --cyan: var(--fx-cyan, #49D7E6);
+  --mint: var(--fx-mint, #46F0C1);
+  --panel: var(--fx-panel, #FFFFFF);
+  color: var(--text);
+}
+
+.reportar .head{
+  display:flex; align-items:center; gap:12px; margin-bottom:12px;
+  border:1px solid var(--line); border-radius:14px; padding:12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.45));
+  box-shadow: 0 10px 28px rgba(15,23,42,0.06), 0 0 0 1px rgba(28,45,64,0.04);
+}
+.reportar .head h2{ margin:0 0 4px 0; font-weight:900; }
+.reportar .head p{ margin:0; color:var(--muted); }
+.reportar .icon{
+  width:44px; height:44px; border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(180deg, #fff, #EEF7FF);
+  border:1px solid var(--line); color:#425164;
+}
+
+.reportar .alert{
+  display:flex; align-items:center; gap:8px; margin:10px 0; padding:10px 12px;
+  border-radius:12px; border:1px solid var(--line);
+}
+.reportar .alert.ok{ background: #e9fff7; color:#0b5d4d; }
+.reportar .alert.err{ background: #fff4f2; color:#7a2f2f; }
+
+.reportar .form{
+  border:1px solid var(--line); border-radius:14px; padding:12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.45));
+  box-shadow: 0 10px 28px rgba(15,23,42,0.06), 0 0 0 1px rgba(28,45,64,0.04);
+}
+.reportar .grid{ display:grid; grid-template-columns: 1fr 1fr; gap:10px; }
+@media (max-width: 760px){ .reportar .grid{ grid-template-columns: 1fr; } }
+
+.reportar label{ display:flex; flex-direction:column; gap:6px; }
+.reportar input, .reportar select, .reportar textarea{
+  border:1px solid var(--line); border-radius:12px; padding:10px 12px;
+  background: linear-gradient(180deg, #fff, #F7FAFE); color:var(--text);
+}
+.reportar textarea{ resize: vertical; }
+
+.reportar .actions{ display:flex; justify-content:flex-end; margin-top:10px; }
+.reportar .btn{
+  display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:12px; border:1px solid var(--line);
+  font-weight:800; text-decoration:none; cursor:pointer; background: linear-gradient(180deg, #fff, #F7FAFE); color:var(--text);
+  transition: transform .12s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+.reportar .btn-primary{ background: linear-gradient(90deg, var(--cyan), var(--mint)); color:#0B1320; }
+.reportar .btn:hover{ transform: translateY(-1px); box-shadow: 0 8px 18px rgba(73,215,230,0.16); border-color: rgba(73,215,230,0.38); }

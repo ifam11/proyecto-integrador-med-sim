@@ -1,0 +1,45 @@
+.q-wrap { padding: 18px; }
+.q-head h2 { margin: 0 0 6px; }
+.q-head p { margin: 0 0 16px; color: #6b7a88; }
+.q-loading { padding: 24px; }
+
+.q-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+.q-card {
+  background: #fff;
+  border: 1px solid rgba(28,45,64,.12);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 8px 20px rgba(15,23,42,.05);
+}
+.q-card h3 { margin: 8px 0; }
+.q-card .muted { color: #6b7a88; font-size: .9rem; }
+
+.chip {
+  display: inline-block;
+  font-size: .75rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #334155;
+  border: 1px solid rgba(28,45,64,.12);
+}
+.chip.anatomia { background: #e6f7ff; color: #0b4c8b; }
+.chip.histologia { background: #f8ebff; color: #6f42c1; }
+.chip.mixto { background: #eafff8; color: #0f766e; }
+
+.btn-go {
+  display: inline-block; margin-top: 8px;
+  padding: 10px 12px; border-radius: 10px;
+  text-decoration: none; color: #0b1320;
+  border: 1px solid rgba(28,45,64,.12);
+  background: linear-gradient(180deg, #fff, #eef7ff);
+}
+.btn-go:hover {
+  border-color: rgba(73,215,230,.45);
+  box-shadow: 0 6px 16px rgba(73,215,230,.18);
+}
+.actions{ display:flex; justify-content:flex-end; }

@@ -1,0 +1,238 @@
+/* ===== Footer futurista claro | SCOPED (no modifica :root global) ===== */
+.footer {
+  /* variables locales */
+  --bg: var(--fx-panel, #ffffff);
+  --bg-grad-1: rgba(255,255,255,0.86);
+  --bg-grad-2: rgba(255,255,255,0.66);
+  --line: var(--fx-line, rgba(28,45,64,0.12));
+  --text: var(--fx-text, #1F2A37);
+  --muted: var(--fx-muted, #59697a);
+  --cyan: var(--fx-cyan, #49D7E6);
+  --lilac: var(--fx-lilac, #A78BFA);
+  --mint: var(--fx-mint, #46F0C1);
+
+  --radius: 14px;
+  --panel-blur: blur(8px) saturate(120%);
+  --panel-shadow: 0 10px 28px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(28,45,64,0.04);
+
+  position: relative;
+  z-index: 10;
+  color: var(--text);
+  border-top: 1px solid var(--line);
+  background:
+    radial-gradient(950px 520px at 110% -10%, rgba(167,139,250,0.12), transparent 55%),
+    radial-gradient(820px 500px at -10% 120%, rgba(73,215,230,0.12), transparent 55%),
+    linear-gradient(180deg, var(--bg-grad-1), var(--bg-grad-2)),
+    var(--bg);
+  backdrop-filter: var(--panel-blur);
+  -webkit-backdrop-filter: var(--panel-blur);
+}
+
+.footer::before{
+  /* halo superior muy sutil */
+  content:"";
+  position:absolute; inset: -24px 0 auto 0; height: 24px;
+  background: radial-gradient(600px 40px at 50% 100%, rgba(73,215,230,0.18), transparent 60%);
+  pointer-events:none;
+}
+
+/* ===== Grid principal ===== */
+.footer-grid{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 16px 14px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.2fr 1.2fr;
+  gap: 24px;
+}
+
+/* Tarjetas suaves por bloque (glass + sombra ligera) */
+.footer-brand,
+.footer-nav,
+.footer-contact,
+.footer-social,
+.footer-newsletter,
+.footer-legal{
+  background: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.45));
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--panel-shadow);
+  padding: 16px 14px;
+}
+
+/* Títulos con barra biomédica */
+.footer h2, .footer h3 {
+  margin: 0 0 12px 0;
+  font-weight: 800;
+  color: #273443;
+  letter-spacing: .2px;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.footer h2 { font-size: 1.25rem; }
+.footer h3 { font-size: 0.98rem; text-transform: uppercase; }
+.footer h2::before,
+.footer h3::before{
+  content:"";
+  width: 6px; height: 14px; border-radius: 4px;
+  background: linear-gradient(180deg, var(--cyan), var(--lilac));
+  box-shadow: 0 0 0 3px rgba(167,139,250,0.12);
+}
+
+/* Texto base */
+.footer p, .footer a, .footer li { color: var(--muted); font-size: 0.95rem; }
+
+/* Identidad */
+.footer-brand .brand-title{
+  background: linear-gradient(90deg, #2A3645, #4f5e70);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.footer-brand .brand-text{ margin: 6px 0 0 0; line-height: 1.5; }
+
+/* Nav */
+.footer-nav ul { list-style: none; padding: 0; margin: 0; }
+.footer-nav li + li { margin-top: 8px; }
+.footer-nav a{
+  text-decoration: none; position: relative;
+  transition: color .15s ease, transform .12s ease;
+}
+.footer-nav a:hover{ color: #0B1320; transform: translateX(2px); }
+.footer-nav a::after{
+  content:""; position:absolute; left:0; bottom:-2px; width:0; height:2px;
+  background: linear-gradient(90deg, var(--lilac), var(--cyan));
+  transition: width .18s ease;
+}
+.footer-nav a:hover::after{ width: 100%; }
+
+/* Contacto */
+.footer-contact ul{ list-style: none; padding: 0; margin: 0; }
+.footer-contact li{
+  display: flex; align-items: center; gap: 10px; margin: 8px 0;
+}
+.footer-contact svg{ color: #6C7A88; }
+
+/* Redes: iconos con anillo gradiente */
+.footer-social .icons{ display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.footer-social .icons a{
+  --ring: linear-gradient(180deg, var(--cyan), var(--lilac));
+  width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 12px; position: relative;
+  background: linear-gradient(180deg, #FFFFFF, #F7FAFE);
+  color: #425164; text-decoration: none;
+  border: 1px solid var(--line);
+  transition: transform .12s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+.footer-social .icons a::before{
+  content:""; position:absolute; inset:-2px; border-radius: 14px;
+  background: var(--ring); opacity: .55; z-index: -1; filter: blur(.6px);
+}
+.footer-social .icons a:hover{
+  transform: translateY(-1px);
+  border-color: rgba(73,215,230,0.45);
+  box-shadow: 0 8px 18px rgba(73,215,230,0.18);
+  background: linear-gradient(180deg, #FFFFFF, #EEF7FF);
+}
+.footer-social .icons a svg{ font-size: 16px; }
+
+/* Newsletter */
+.footer-newsletter p{ margin: 6px 0 12px; }
+.newsletter-form{ display: flex; gap: 8px; align-items: center; }
+.newsletter-form input{
+  flex: 1; border-radius: 12px; border: 1px solid var(--line);
+  padding: 12px 14px; font-size: 0.95rem;
+  background: linear-gradient(180deg, #FFFFFF, #F7FAFE);
+  color: var(--text);
+  box-shadow: inset 0 0 0 1px rgba(73,215,230,0.10);
+  transition: box-shadow .18s ease, border-color .18s ease;
+}
+.newsletter-form input::placeholder{ color: var(--muted); }
+.newsletter-form input:focus{
+  outline: none;
+  box-shadow: inset 0 0 0 1px rgba(73,215,230,0.28), 0 0 0 3px rgba(73,215,230,0.18);
+  border-color: rgba(73,215,230,0.45);
+}
+.btn-subscribe{
+  display:flex; align-items:center; gap:8px; white-space: nowrap;
+  padding: 12px 14px; border-radius: 12px; cursor: pointer;
+  border: 1px solid var(--line);
+  background: linear-gradient(90deg, var(--cyan), var(--mint));
+  color: #0B1320; font-weight: 800;
+  transition: transform .12s ease, box-shadow .18s ease, filter .18s ease;
+}
+.btn-subscribe:hover{ transform: translateY(-1px); box-shadow: 0 8px 18px rgba(73,215,230,0.20); }
+.btn-subscribe:active{ transform: translateY(0); filter: saturate(110%); }
+.btn-subscribe svg{ color:#0B1320; }
+
+/* Legal */
+.footer-legal{ display: flex; flex-direction: column; gap: 10px; }
+.footer-legal a{
+  text-decoration: none; border-bottom: 1px dashed transparent;
+  transition: color .15s ease, border-color .15s ease;
+}
+.footer-legal a:hover{ color: #0B1320; border-color: rgba(73,215,230,0.45); }
+
+/* Línea inferior */
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid var(--line);
+  margin-top: 18px;
+  padding: 14px 16px 22px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.footer-bottom .bottom-links{ display: flex; align-items: center; gap: 12px; }
+.footer-bottom .bottom-links a{ color: var(--muted); text-decoration: none; text-align: center; }
+.footer-bottom .bottom-links a:hover{ color: #0B1320; }
+.footer-bottom .dot{ width: 6px;  text-align: center; height: 6px; border-radius: 50%;
+  background: linear-gradient(180deg, var(--cyan), var(--lilac));
+}
+
+/* Accesibilidad */
+.footer a:focus-visible, .newsletter-form input:focus-visible, .btn-subscribe:focus-visible{
+  outline: 2px solid rgba(73,215,230,0.65);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(73,215,230,0.18);
+  text-align: center;
+}
+
+/* Reducir animaciones si el usuario lo pidió */
+@media (prefers-reduced-motion: reduce){
+  .footer *, .footer *::before { transition: none !important; }
+}
+
+/* Responsive */
+@media (max-width: 1100px){
+  .footer-grid{ grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 20px; }
+}
+@media (max-width: 860px){
+  .footer-grid{ grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px){
+  .footer-grid{ grid-template-columns: 1fr; }
+  .footer-bottom{ flex-direction: column; text-align: center; }
+}
+
+/* Tema oscuro (si usas data-theme="dark" en <html>) */
+:root[data-theme="dark"] .footer{
+  --bg: #101725;
+  --bg-grad-1: rgba(16,23,37,0.86);
+  --bg-grad-2: rgba(16,23,37,0.66);
+  --line: rgba(255,255,255,0.10);
+  --text: #EAF2FF;
+  --muted: #A9B3C2;
+}
+:root[data-theme="dark"] .footer-brand,
+:root[data-theme="dark"] .footer-nav,
+:root[data-theme="dark"] .footer-contact,
+:root[data-theme="dark"] .footer-social,
+:root[data-theme="dark"] .footer-newsletter,
+:root[data-theme="dark"] .footer-legal{
+  background: linear-gradient(180deg, rgba(26,32,48,0.65), rgba(17,23,36,0.55));
+}

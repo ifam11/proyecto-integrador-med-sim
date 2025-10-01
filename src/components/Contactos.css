@@ -1,0 +1,256 @@
+.contactos-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 2rem;
+  }
+  
+  .contactos-content {
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+  }
+  
+  .contactos-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .contactos-header h1 {
+    color: #1a1a1a;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  
+  .subtitle {
+    color: #666;
+    font-size: 1.1rem;
+  }
+  
+  .form-group {
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 1rem 0.8rem;
+    font-size: 1rem;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group label {
+    position: absolute;
+    left: 0.8rem;
+    top: -0.7rem;
+    padding: 0 0.4rem;
+    background: white;
+    color: #666;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+  }
+  
+  .form-group input:focus ~ label,
+  .form-group textarea:focus ~ label {
+    color: #4a90e2;
+  }
+  
+  .form-group .form-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #ddd;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group.focused .form-line {
+    height: 2px;
+    background: #4a90e2;
+  }
+  
+  .form-group input:focus ~ label,
+  .form-group textarea:focus ~ label,
+  .form-group input:not(:placeholder-shown) ~ label,
+  .form-group textarea:not(:placeholder-shown) ~ label {
+    top: -20px;
+    font-size: 0.9rem;
+    color: #4a90e2;
+  }
+  
+  .form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 1rem;
+    background: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .submit-button:hover {
+    background: #357abd;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+  }
+  
+  .submit-button:active {
+    transform: translateY(0);
+  }
+    
+  .submit-button:hover svg {
+    transform: translateX(5px);
+  }
+  
+  @media (max-width: 768px) {
+    .contactos-content {
+      padding: 2rem;
+    }
+  
+    .contactos-header h1 {
+      font-size: 2rem;
+    }
+  
+    .subtitle {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .contactos-container {
+      padding: 1rem;
+    }
+  
+    .contactos-content {
+      padding: 1.5rem;
+    }
+  
+    .contactos-header h1 {
+      font-size: 1.8rem;
+    }
+  }
+  /* Añadir al final del archivo CSS existente */
+
+.submit-button.loading {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.submit-button.loading:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.success-message {
+  color: #28a745;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
+  width: 100%;
+}
+.form-status-messages {
+  min-height: 50px; /* Reserva espacio para evitar saltos de layout */
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Estilo unificado para los mensajes */
+.error-message, .success-message {
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border: 1px solid transparent;
+}
+
+.error-message {
+  color: #842029;
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+}
+
+.success-message {
+  color: #0f5132;
+  background-color: #d1e7dd;
+  border-color: #badbcc;
+}
+
+/* --- MODIFICAR ESTA REGLA EXISTENTE --- */
+
+/* El cambio clave es usar el selector :placeholder-shown. 
+  Esto hace que la animación de la etiqueta funcione perfectamente.
+  Reemplaza tu regla `.form-group input:focus ~ label, ...` por esta:
+*/
+.form-group input:focus + label,
+.form-group textarea:focus + label,
+.form-group input:not(:placeholder-shown) + label,
+.form-group textarea:not(:placeholder-shown) + label {
+  top: -0.7rem; /* Sube la etiqueta */
+  font-size: 0.8rem;
+  color: #4a90e2;
+}
+
+/* --- REEMPLAZA TU REGLA .form-group label POR ESTA --- */
+.form-group label {
+  position: absolute;
+  left: 0.8rem;
+  top: 1rem; /* Alineado con el input */
+  padding: 0 0.4rem;
+  background: white;
+  color: #666;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  pointer-events: none; /* Permite hacer clic a través de la etiqueta */
+}
+
+/* Elimina el estilo anterior del botón con el SVG, ya no es necesario */
+.submit-button svg {
+   display: none; /* O simplemente elimina el SVG del JSX */
+}

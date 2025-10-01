@@ -1,0 +1,69 @@
+/* Elimina márgenes y paddings globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Asegura que la app use todo el ancho sin desbordarse */
+  html, body, #root {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Opcional: asegúrate que las imágenes no se salgan */
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  
+  /* Layout general */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Contenedor de MenuBar + contenido */
+.content-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Estilo de MenuBar */
+.menu-bar {
+  width: 250px; /* ajusta según necesites */
+  background: #023e8a; /* azul oscuro */
+  color: white;
+  flex-shrink: 0;
+  padding: 1rem;
+  min-height: calc(100vh - 120px); /* altura total menos header y footer */
+}
+
+/* Contenido principal */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}
+.menu-toggle {
+  display: none;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  z-index: 1000;
+  background: #023e8a;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+}

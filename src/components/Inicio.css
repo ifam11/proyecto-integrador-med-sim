@@ -1,0 +1,217 @@
+/* src/components/Inicio.css */
+
+.inicio {
+  padding: 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+}
+
+.inicio-titulo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0077b6;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.inicio-slogan {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 3rem;
+}
+
+/* --- Sección Introductoria --- */
+.inicio-section {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-bottom: 4rem;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.inicio-text {
+  flex: 1;
+}
+
+.inicio-subtitulo {
+  font-size: 2rem;
+  color: #023e8a;
+  margin-bottom: 1rem;
+}
+
+.inicio-descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.inicio-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px;
+}
+
+.inicio-image {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Sección de Módulos --- */
+.inicio-modules-section {
+  margin-bottom: 4rem;
+}
+
+.modules-titulo {
+  text-align: center;
+  font-size: 2rem;
+  color: #023e8a;
+  margin-bottom: 2rem;
+}
+
+.module-card {
+  display: flex;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.module-card.reverse {
+  flex-direction: row-reverse;
+}
+
+.card-image-container {
+  width: 40%;
+  flex-shrink: 0;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-titulo {
+  font-size: 1.5rem;
+  color: #0077b6;
+  margin-bottom: 1rem;
+}
+
+.card-descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.module-features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.module-features-list li {
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+/* --- Sección de Beneficios --- */
+.inicio-benefits-section {
+  margin-bottom: 4rem;
+}
+
+.benefits-titulo {
+  text-align: center;
+  font-size: 2rem;
+  color: #023e8a;
+  margin-bottom: 2rem;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.benefit-item {
+  text-align: center;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  color: #0077b6;
+  margin-bottom: 1rem;
+}
+
+.benefit-title {
+  font-size: 1.2rem;
+  color: #023e8a;
+  margin-bottom: 0.5rem;
+}
+
+.benefit-text {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* --- Llamada a la Acción --- */
+.inicio-call-to-action {
+  text-align: center;
+  background: linear-gradient(90deg, #0077b6, #00b4d8, #48cae4);
+  color: #fff;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.cta-titulo {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.cta-texto {
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background-color: #fff;
+  color: #023e8a;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e6f7ff;
+  transform: translateY(-2px);
+}

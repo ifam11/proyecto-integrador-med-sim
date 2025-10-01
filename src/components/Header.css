@@ -1,0 +1,180 @@
+/* ===== Header futurista claro (glass + pastel) ===== */
+:root {
+  /* reutilizamos variables si ya existen; añadimos fallback para seguridad */
+  --fx-bg: var(--fx-bg, #F6FAFF);
+  --fx-panel: var(--fx-panel, #FFFFFF);
+  --fx-line: var(--fx-line, rgba(28,45,64,0.12));
+  --fx-text: var(--fx-text, #1F2A37);
+  --fx-muted: var(--fx-muted, #5B6B7C);
+
+  --fx-cyan: var(--fx-cyan, #49D7E6);
+  --fx-lilac: var(--fx-lilac, #A78BFA);
+  --fx-mint: var(--fx-mint, #46F0C1);
+  --fx-coral: var(--fx-coral, #FF6B8A);
+
+  --header-h: 64px;
+  --radius: 12px;
+  --panel-shadow: 0 8px 24px rgba(15, 23, 42, 0.08), 0 0 0 1px rgba(28,45,64,0.04);
+  --panel-blur: blur(8px) saturate(120%);
+}
+/* Variante oscura opcional (por si usas el toggle) */
+:root[data-theme="dark"].icon-btn{
+  --fx-bg: #0B1020;
+  --fx-panel: #101725;
+  --fx-line: rgba(255,255,255,0.09);
+  --fx-text: #62c2e2;
+  --fx-muted: #A9B3C2;
+  --panel-shadow: 0 10px 28px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.04);
+  background: linear-gradient(180deg, #1b2332, #131a26);
+  color: #08090b;
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* Contenedor del header */
+.header {
+  position: sticky;       /* siempre visible arriba */
+  top: 0;
+  z-index: 20;            /* por debajo de modales y overlays */
+  width: 100%;
+  backdrop-filter: var(--panel-blur);
+  -webkit-backdrop-filter: var(--panel-blur);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.58)),
+    var(--fx-panel);
+  border-bottom: 1px solid var(--fx-line);
+  box-shadow: var(--panel-shadow);
+}
+
+/* Contenido interno */
+.header-content {
+  height: var(--header-h);
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* Marca: logo + título + subtítulo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0; /* permite elipsis si hay poco espacio */
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(73,215,230,0.16);
+}
+
+.title {
+  font-size: 1.25rem;
+  line-height: 1;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  color: var(--fx-text);
+  white-space: nowrap;
+}
+
+.divider {
+  width: 1px;
+  height: 20px;
+  background: linear-gradient(180deg, rgba(73,215,230,0.6), rgba(167,139,250,0.6));
+  border-radius: 1px;
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--fx-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Acciones derecha: iconos lineales con glass suave */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  
+}
+
+.icon-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  color: var(--fx-cyan); 
+
+  border: 1px solid var(--fx-line);
+  background: linear-gradient(180deg, #FFFFFF, #F7FAFE);
+  
+  color: var(--fx-cyan);
+
+  box-shadow: 0 2px 10px rgba(5,13,25,0.05);
+  transition: transform .12s ease, box-shadow .18s ease, border-color .18s ease, background .18s ease;
+}
+
+.icon-btn:hover {
+  border-color: rgba(73,215,230,0.5);
+  box-shadow: 0 6px 16px rgba(73,215,230,0.18);
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, #FFFFFF, #EEF7FF);
+  color: var(--fx-lilac);
+}
+
+.icon-btn:active {
+  transform: translateY(0);
+}
+
+.icon-btn:focus-visible {
+  outline: 2px solid rgba(73,215,230,0.65);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(73,215,230,0.18);
+}
+
+/* Badge para notificaciones (opcional) */
+.icon-btn .badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  background: linear-gradient(180deg, var(--fx-coral), #ff88a2);
+  border-radius: 999px;
+  box-shadow: 0 0 0 2px #fff;
+}
+
+/* Responsivo: si hay poco ancho, escondemos subtítulo primero */
+@media (max-width: 860px) {
+  .subtitle { display: none; }
+}
+
+@media (max-width: 560px) {
+  .title { font-size: 1.05rem; }
+  .logo { width: 32px; height: 32px; }
+  .header-content { padding: 0 10px; }
+}

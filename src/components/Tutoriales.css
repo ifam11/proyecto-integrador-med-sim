@@ -1,0 +1,61 @@
+.tutoriales{
+  --line: var(--fx-line, rgba(28,45,64,0.12));
+  --text: var(--fx-text, #1F2A37);
+  --muted: var(--fx-muted, #5B6B7C);
+  --cyan: var(--fx-cyan, #49D7E6);
+  --mint: var(--fx-mint, #46F0C1);
+  --panel: var(--fx-panel, #FFFFFF);
+  --card-h: clamp(220px, 28vw, 300px);
+  color: var(--text);
+}
+
+/* Toolbar */
+.tutoriales .toolbar{ display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:14px; }
+.tutoriales .search{
+  display:flex; align-items:center; gap:10px; padding:10px 12px; min-width:260px;
+  border:1px solid var(--line); border-radius:12px; background: linear-gradient(180deg, #fff, #F7FAFE);
+}
+.tutoriales .search input{ border:none; outline:none; background:transparent; width:280px; color:var(--text); }
+.tutoriales .chips{ display:flex; gap:8px; flex-wrap:wrap; }
+.tutoriales .chip{ border:1px solid var(--line); background:#fff; border-radius:999px; padding:8px 12px; cursor:pointer; font-weight:800; }
+.tutoriales .chip.active{ background: linear-gradient(90deg, var(--cyan), var(--mint)); color:#0B1320; }
+
+.tutoriales .grid{ display:grid; grid-template-columns: repeat(3, 1fr); gap:14px; }
+@media (max-width: 980px){ .tutoriales .grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 620px){ .tutoriales .grid{ grid-template-columns: 1fr; } }
+
+.tutoriales .card{
+  border:1px solid var(--line); border-radius:16px; overflow:hidden;
+  background: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.45));
+  box-shadow: 0 10px 28px rgba(15,23,42,0.06), 0 0 0 1px rgba(28,45,64,0.04);
+}
+.tutoriales .media{ position:relative; height: var(--card-h); background:var(--panel); }
+.tutoriales .media img{ width:100%; height:100%; object-fit:cover; display:block; }
+.tutoriales .ph{ width:100%; height:100%; background: #edf3f9; }
+.tutoriales .badge{
+  position:absolute; left:10px; top:10px; font-size:.78rem; font-weight:900;
+  display:inline-flex; align-items:center; gap:6px; color:#0B1320; padding:6px 10px; border-radius:999px; border:1px solid var(--line);
+  background: rgba(255,255,255,0.92);
+}
+.tutoriales .play{
+  position:absolute; right:12px; bottom:12px; width:46px; height:46px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; border:1px solid var(--line);
+  background: linear-gradient(90deg, var(--cyan), var(--mint)); color:#0B1320; font-weight:900; cursor:pointer;
+  box-shadow: 0 8px 18px rgba(73,215,230,0.16);
+}
+.tutoriales .body{ padding:14px 12px; }
+.tutoriales .title{ margin:0 0 6px 0; font-size:1.06rem; font-weight:900; }
+.tutoriales .desc{ margin:0 0 8px 0; color:var(--muted); line-height:1.6; }
+.tutoriales .meta{ font-size:.85rem; font-weight:800; padding:4px 8px; display:inline-block; border-radius:999px; border:1px solid var(--line); background:#fff; }
+.tutoriales .btn{ display:inline-flex; align-items:center; gap:8px; margin-top:8px; padding:10px 12px; border-radius:12px; border:1px solid var(--line); font-weight:800; background: linear-gradient(180deg, #fff, #F7FAFE); color:var(--text); text-decoration:none; }
+
+/* Lightbox video */
+.tutoriales .lightbox{ position:fixed; inset:0; background: rgba(10,16,28,0.76); display:flex; align-items:center; justify-content:center; padding:20px; z-index:100; }
+.tutoriales .frame{ position:relative; width:min(980px, 92vw); aspect-ratio: 16/9; background:#000; border-radius:12px; overflow:hidden; }
+.tutoriales iframe{ width:100%; height:100%; border:0; display:block; }
+.tutoriales .close{ position:absolute; top:8px; right:8px; width:16px; height:16px; border:0; background:transparent; }
+.tutoriales .close::before, .tutoriales .close::after{
+  content:""; position:absolute; left:50%; top:50%; width:18px; height:2px; background:#fff; border-radius:2px; transform-origin:center; 
+}
+.tutoriales .close::before{ transform: translate(-50%, -50%) rotate(45deg); }
+.tutoriales .close::after{ transform: translate(-50%, -50%) rotate(-45deg); }
